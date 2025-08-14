@@ -3,11 +3,20 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* Brand palette */
+  --brand: #0ea5e9; /* sky-500 */
+  --brand-600: #0284c7;
+  --accent: #a855f7; /* purple-500 */
+  --accent-600: #7e22ce;
+  --muted: #f5f7fb;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -16,6 +25,11 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --brand: #38bdf8; /* sky-400 */
+    --brand-600: #0ea5e9;
+    --accent: #c084fc; /* purple-400 */
+    --accent-600: #a855f7;
+    --muted: #0f1115;
   }
 }
 
