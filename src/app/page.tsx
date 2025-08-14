@@ -7,7 +7,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-black/5 bg-background/80 backdrop-blur">
         <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-full bg-black/90 text-white grid place-items-center font-semibold">JW</div>
+            <div className="h-9 w-9 rounded-full bg-[var(--brand)] text-white grid place-items-center font-semibold">JW</div>
             <span className="font-semibold tracking-tight">JurisWay</span>
           </div>
           <nav aria-label="Navegação principal" className="hidden md:block">
@@ -19,23 +19,26 @@ export default function Home() {
               <li><a className="hover:underline underline-offset-4" href="#contato">Contato</a></li>
             </ul>
           </nav>
-          <a href="#contato" className="hidden md:inline-flex items-center rounded-full bg-black text-white px-5 py-2 text-sm font-medium hover:bg-black/90">Agendar consulta</a>
+          <a href="#contato" className="hidden md:inline-flex items-center rounded-full bg-[var(--brand)] text-white px-5 py-2 text-sm font-medium hover:bg-[var(--brand-600)]">Agendar consulta</a>
         </div>
       </header>
 
       <main>
         {/* Hero */}
         <section className="relative overflow-hidden">
-          <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(600px_200px_at_20%_-40%,rgba(0,0,0,0.06)_0%,transparent_60%),radial-gradient(600px_200px_at_80%_-40%,rgba(0,0,0,0.06)_0%,transparent_60%)]" />
+          <div aria-hidden className="pointer-events-none absolute inset-0">
+            <div className="absolute inset-0 bg-[radial-gradient(600px_200px_at_20%_-40%,rgba(0,0,0,0.06)_0%,transparent_60%),radial-gradient(600px_200px_at_80%_-40%,rgba(0,0,0,0.06)_0%,transparent_60%)]" />
+            <div className="absolute -inset-x-20 -top-32 h-64 bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] opacity-20 blur-3xl" />
+          </div>
           <div className="mx-auto max-w-7xl px-6 pt-20 pb-24 sm:pt-28 sm:pb-32">
             <div className="grid items-center gap-10 md:grid-cols-2">
               <div>
                 <p className="text-xs uppercase tracking-widest text-black/60">Advocacia & Consultoria</p>
-                <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">Soluções jurídicas estratégicas para impulsionar seus resultados</h1>
+                <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] bg-clip-text text-transparent">Soluções jurídicas estratégicas para impulsionar seus resultados</h1>
                 <p className="mt-4 text-black/70 leading-relaxed">Na JurisWay, unimos técnica, experiência e atendimento humano para proteger seus interesses e destravar oportunidades. Conte com um time ágil e comprometido.</p>
                 <div className="mt-6 flex items-center gap-3">
-                  <a href="#contato" className="inline-flex items-center rounded-full bg-black text-white px-5 py-2.5 text-sm font-medium hover:bg-black/90">Fale com um especialista</a>
-                  <a href="#areas" className="inline-flex items-center rounded-full border border-black/10 px-5 py-2.5 text-sm font-medium hover:bg-black/[.03]">Conheça nossas áreas</a>
+                  <a href="#contato" className="inline-flex items-center rounded-full bg-[var(--brand)] text-white px-5 py-2.5 text-sm font-medium hover:bg-[var(--brand-600)]">Fale com um especialista</a>
+                  <a href="#areas" className="inline-flex items-center rounded-full border border-[color:var(--brand)] text-[color:var(--brand)] px-5 py-2.5 text-sm font-medium hover:bg-[color:color-mix(in_oklab,white_85%,var(--brand))] hover:text-[color:var(--foreground)]">Conheça nossas áreas</a>
                 </div>
                 <div className="mt-8 flex items-center gap-6 text-xs text-black/60">
                   <div className="flex -space-x-2">
@@ -46,7 +49,7 @@ export default function Home() {
                   <span>Atendimento em todo o Brasil</span>
                 </div>
               </div>
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[color:color-mix(in_oklab,var(--brand)_30%,black)] bg-white shadow-sm">
                 <Image src="/globe.svg" alt="Ilustração jurídica" fill className="object-contain p-10 opacity-80" />
               </div>
             </div>
@@ -57,7 +60,7 @@ export default function Home() {
         <section id="sobre" className="border-t border-black/5 bg-white">
           <div className="mx-auto max-w-7xl px-6 py-20 grid gap-10 md:grid-cols-2">
             <div>
-              <h2 className="text-2xl font-semibold tracking-tight">Compromisso com excelência e clareza</h2>
+              <h2 className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] bg-clip-text text-transparent">Compromisso com excelência e clareza</h2>
               <p className="mt-4 text-black/70 leading-relaxed">Atuamos com foco em resultado, linguagem direta e previsibilidade. Nossas orientações são objetivas, com análise de risco e plano de ação claros em cada etapa.</p>
               <ul className="mt-6 grid gap-3 text-sm text-black/80">
                 <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-black/80" /> Atendimento consultivo e contencioso</li>
@@ -71,7 +74,7 @@ export default function Home() {
                 { kpi: "98%", label: "SLA de respostas" },
                 { kpi: "24h", label: "prioridade crítica" },
               ].map((item) => (
-                <div key={item.kpi} className="rounded-xl border border-black/10 bg-background p-6 text-center">
+                <div key={item.kpi} className="rounded-xl border border-[color:color-mix(in_oklab,var(--brand)_25%,black)] bg-[var(--muted)] p-6 text-center">
                   <div className="text-2xl font-semibold">{item.kpi}</div>
                   <div className="mt-1 text-xs text-black/60">{item.label}</div>
                 </div>
@@ -83,7 +86,7 @@ export default function Home() {
         {/* Áreas de Atuação */}
         <section id="areas" className="border-t border-black/5">
           <div className="mx-auto max-w-7xl px-6 py-20">
-            <h2 className="text-2xl font-semibold tracking-tight">Áreas de atuação</h2>
+            <h2 className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] bg-clip-text text-transparent">Áreas de atuação</h2>
             <p className="mt-2 text-black/70">Cobertura completa para as principais demandas empresariais e pessoais.</p>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {[
@@ -94,8 +97,8 @@ export default function Home() {
                 { title: "Tributário", desc: "Planejamento e contencioso administrativo/judicial." },
                 { title: "LGPD & Compliance", desc: "Privacidade, segurança e programas de integridade." },
               ].map((card) => (
-                <div key={card.title} className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm transition hover:shadow-md">
-                  <div className="h-10 w-10 rounded-md bg-black/90 text-white grid place-items-center text-xs font-semibold">JW</div>
+                <div key={card.title} className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm transition hover:shadow-md hover:ring-2 hover:ring-[var(--brand)]">
+                  <div className="h-10 w-10 rounded-md bg-[var(--brand)] text-white grid place-items-center text-xs font-semibold">JW</div>
                   <h3 className="mt-4 text-lg font-semibold">{card.title}</h3>
                   <p className="mt-1 text-sm text-black/70">{card.desc}</p>
                 </div>
@@ -107,14 +110,14 @@ export default function Home() {
         {/* Diferenciais */}
         <section id="diferenciais" className="border-t border-black/5 bg-white">
           <div className="mx-auto max-w-7xl px-6 py-20">
-            <h2 className="text-2xl font-semibold tracking-tight">Por que escolher a JurisWay</h2>
+            <h2 className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] bg-clip-text text-transparent">Por que escolher a JurisWay</h2>
             <div className="mt-8 grid gap-6 md:grid-cols-3">
               {[
                 { t: "Comunicação clara", d: "Sem juridiquês: posicionamentos práticos, prazos e próximos passos." },
                 { t: "Foco em resultado", d: "Estratégia orientada a metas e indicadores mensuráveis." },
                 { t: "Time dedicado", d: "Profissionais experientes com visão de negócio." },
               ].map((f) => (
-                <div key={f.t} className="rounded-2xl border border-black/10 bg-background p-6">
+                <div key={f.t} className="rounded-2xl border border-[color:color-mix(in_oklab,var(--accent)_25%,black)] bg-[var(--muted)] p-6">
                   <h3 className="text-lg font-semibold">{f.t}</h3>
                   <p className="mt-2 text-sm text-black/70">{f.d}</p>
                 </div>
@@ -126,7 +129,7 @@ export default function Home() {
         {/* Depoimentos */}
         <section id="depoimentos" className="border-t border-black/5">
           <div className="mx-auto max-w-7xl px-6 py-20">
-            <h2 className="text-2xl font-semibold tracking-tight">O que dizem nossos clientes</h2>
+            <h2 className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] bg-clip-text text-transparent">O que dizem nossos clientes</h2>
             <div className="mt-8 grid gap-6 md:grid-cols-3">
               {[
                 {
@@ -144,7 +147,7 @@ export default function Home() {
               ].map((t) => (
                 <blockquote key={t.q} className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
                   <p className="text-sm leading-relaxed">“{t.q}”</p>
-                  <footer className="mt-3 text-xs text-black/60">{t.a}</footer>
+                  <footer className="mt-3 text-xs text-[color:var(--brand-600)]">{t.a}</footer>
                 </blockquote>
               ))}
             </div>
@@ -156,7 +159,7 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-6 py-20">
             <div className="grid gap-10 md:grid-cols-2">
               <div>
-                <h2 className="text-2xl font-semibold tracking-tight">Entre em contato</h2>
+                <h2 className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] bg-clip-text text-transparent">Entre em contato</h2>
                 <p className="mt-2 text-black/70">Conte brevemente seu caso e retornaremos com os próximos passos.</p>
                 <div className="mt-6 space-y-3 text-sm text-black/80">
                   <p><strong>E-mail:</strong> contato@jurisway.com</p>
@@ -164,27 +167,27 @@ export default function Home() {
                   <p><strong>Endereço:</strong> Av. Exemplo, 123 - Centro, São Paulo - SP</p>
                 </div>
               </div>
-              <form className="rounded-2xl border border-black/10 bg-background p-6 shadow-sm">
+              <form className="rounded-2xl border border-[color:color-mix(in_oklab,var(--brand)_25%,black)] bg-background p-6 shadow-sm">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="sm:col-span-2">
                     <label className="block text-sm font-medium">Nome</label>
-                    <input required type="text" className="mt-1 w-full rounded-md border border-black/15 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black/10" />
+                    <input required type="text" className="mt-1 w-full rounded-md border border-black/15 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[var(--brand)]" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium">E-mail</label>
-                    <input required type="email" className="mt-1 w-full rounded-md border border-black/15 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black/10" />
+                    <input required type="email" className="mt-1 w-full rounded-md border border-black/15 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[var(--brand)]" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium">Telefone</label>
-                    <input type="tel" className="mt-1 w-full rounded-md border border-black/15 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black/10" />
+                    <input type="tel" className="mt-1 w-full rounded-md border border-black/15 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[var(--brand)]" />
                   </div>
                   <div className="sm:col-span-2">
                     <label className="block text-sm font-medium">Mensagem</label>
-                    <textarea required rows={4} className="mt-1 w-full rounded-md border border-black/15 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black/10" />
+                    <textarea required rows={4} className="mt-1 w-full rounded-md border border-black/15 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[var(--brand)]" />
                   </div>
                 </div>
                 <div className="mt-4 flex items-center gap-3">
-                  <button type="submit" className="inline-flex items-center rounded-full bg-black text-white px-5 py-2.5 text-sm font-medium hover:bg-black/90">Enviar mensagem</button>
+                  <button type="submit" className="inline-flex items-center rounded-full bg-[var(--brand)] text-white px-5 py-2.5 text-sm font-medium hover:bg-[var(--brand-600)]">Enviar mensagem</button>
                   <a href="mailto:contato@jurisway.com" className="text-sm hover:underline underline-offset-4">Enviar por e-mail</a>
                 </div>
               </form>
@@ -197,12 +200,12 @@ export default function Home() {
       <footer className="border-t border-black/5">
         <div className="mx-auto max-w-7xl px-6 py-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded-full bg-black/90 text-white grid place-items-center text-xs font-semibold">JW</div>
+            <div className="h-8 w-8 rounded-full bg-[var(--brand)] text-white grid place-items-center text-xs font-semibold">JW</div>
             <span className="text-sm">© {new Date().getFullYear()} JurisWay. Todos os direitos reservados.</span>
           </div>
           <nav className="text-sm">
-            <a href="#" className="hover:underline underline-offset-4 mr-4">Política de Privacidade</a>
-            <a href="#" className="hover:underline underline-offset-4">Termos de Uso</a>
+            <a href="#" className="hover:underline underline-offset-4 mr-4 text-[color:var(--brand-600)]">Política de Privacidade</a>
+            <a href="#" className="hover:underline underline-offset-4 text-[color:var(--brand-600)]">Termos de Uso</a>
           </nav>
         </div>
       </footer>
