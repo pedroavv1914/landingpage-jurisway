@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import About from "../components/About";
 import Areas from "../components/Areas";
 import Diferenciais from "../components/Diferenciais";
+import Depoimentos from "../components/Depoimentos";
 import Separator from "../components/Separator";
 
 export default function Home() {
@@ -27,32 +28,7 @@ export default function Home() {
         <Separator />
 
         {/* Depoimentos */}
-        <section id="depoimentos" className="border-t border-black/5">
-          <div className="mx-auto max-w-7xl px-6 py-20">
-            <h2 className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] bg-clip-text text-transparent">O que dizem nossos clientes</h2>
-            <div className="mt-8 grid gap-6 md:grid-cols-3">
-              {[
-                {
-                  q: "A JurisWay nos apoiou em negociações complexas com agilidade e precisão.",
-                  a: "Diretora Financeira",
-                },
-                {
-                  q: "Comunicação impecável e estratégia muito bem definida.",
-                  a: "CEO de Startup",
-                },
-                {
-                  q: "Entregaram exatamente o que prometeram, com transparência em todo o processo.",
-                  a: "Empresário do setor varejista",
-                },
-              ].map((t) => (
-                <blockquote key={t.q} className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-                  <p className="text-sm leading-relaxed">“{t.q}”</p>
-                  <footer className="mt-3 text-xs text-[color:var(--brand-600)]">{t.a}</footer>
-                </blockquote>
-              ))}
-            </div>
-          </div>
-        </section>
+        <Depoimentos />
         <Separator />
 
         {/* Contato */}
