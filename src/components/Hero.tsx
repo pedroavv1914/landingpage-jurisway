@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden text-white">
+    <section className="relative overflow-hidden text-white min-h-screen">
       {/* Background */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute -inset-x-32 -top-48 h-80 bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] opacity-30 blur-3xl animate-gradient-slow" />
@@ -14,104 +14,73 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(1000px_400px_at_20%_40%,rgba(0,0,0,0.6)_0%,transparent_60%)]" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 pt-20 pb-24 sm:pt-28 sm:pb-32">
-        <div className="grid items-center gap-10 md:grid-cols-2">
-          {/* Copy */}
-          <div>
+      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-40 min-h-screen flex items-center">
+        <div className="w-full space-y-12">
+          {/* Headline centralizada */}
+          <div className="mx-auto max-w-3xl text-center relative z-10">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1 text-[11px] text-white/80 backdrop-blur">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--brand)]" /> Atendimento em até 24h
             </span>
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
-              <span className="block bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] bg-clip-text text-transparent drop-shadow-[0_2px_12px_rgba(0,0,0,0.4)]">JurisWay</span>
-              <span className="block mt-1">Estratégia jurídica para negócios.</span>
+            <h1 className="mt-6 text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-tight">
+              <span className="block bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] bg-clip-text text-transparent">JurisWay</span>
+              <span className="block mt-2 text-white">Estratégia jurídica para negócios</span>
             </h1>
-            <p className="mt-4 text-white/80 leading-relaxed">
-              Atuamos como parceiro jurídico do seu crescimento: prevenção de riscos, contratos, LGPD e contencioso com previsibilidade.
+            <p className="mt-6 text-lg text-white/80">
+              Jurídico moderno e orientado a dados para escalar contratos, adequar LGPD e reduzir riscos com previsibilidade.
             </p>
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <a href="#contato" className="btn-shine inline-flex items-center rounded-full bg-[var(--brand)] text-white px-5 py-2.5 text-sm font-medium shadow-lg shadow-[color:color-mix(in_oklab,var(--brand)_25%,transparent)] transition-transform hover:scale-[1.04] hover:bg-[var(--brand-600)]">
+            <div className="mt-8 flex justify-center gap-4">
+              <a href="#contato" className="btn-shine inline-flex items-center rounded-full bg-[var(--brand)] text-white px-6 py-3 text-sm font-medium shadow-lg shadow-[color:color-mix(in_oklab,var(--brand)_25%,transparent)] transition-transform hover:scale-[1.04]">
                 Agendar avaliação gratuita
               </a>
-              <a href="#depoimentos" className="inline-flex items-center rounded-full border border-white/20 text-white/90 px-5 py-2.5 text-sm font-medium hover:bg-white/10">
+              <a href="#depoimentos" className="inline-flex items-center rounded-full border border-white/20 text-white/90 px-6 py-3 text-sm font-medium hover:bg-white/10">
                 Ver casos de sucesso
               </a>
             </div>
-
-            <ul className="mt-6 grid gap-2 text-sm text-white/85">
-              <li className="flex items-start gap-2"><CheckIcon /> Contratos e societário com foco em escala</li>
-              <li className="flex items-start gap-2"><CheckIcon /> Adequação LGPD e políticas internas</li>
-              <li className="flex items-start gap-2"><CheckIcon /> Contencioso estratégico e recuperação</li>
+            <ul className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-white/85">
+              <li className="inline-flex items-center gap-2"><CheckIcon /> Contratos em escala</li>
+              <li className="inline-flex items-center gap-2"><CheckIcon /> LGPD completa</li>
+              <li className="inline-flex items-center gap-2"><CheckIcon /> Contencioso estratégico</li>
             </ul>
           </div>
 
-          {/* Visual cards */}
-          <div className="relative h-[380px] w-full">
-            {/* back glow */}
-            <div className="absolute -inset-6 rounded-3xl bg-gradient-to-tr from-[color:color-mix(in_oklab,var(--brand)_35%,transparent)] to-[color:color-mix(in_oklab,var(--accent)_35%,transparent)] opacity-40 blur-2xl" />
-
-            {/* Card 1 */}
-            <div className="absolute left-6 top-8 w-[75%] max-w-[420px] rounded-2xl border border-white/15 bg-white/10 p-5 shadow-sm backdrop-blur">
-              <div className="flex items-center justify-between">
+          {/* Painel ilustrativo único */}
+          <div className="mx-auto w-full max-w-6xl">
+            <div className="relative rounded-3xl border border-white/10 bg-white/5 px-6 py-6 sm:px-10 sm:py-8 backdrop-blur">
+              <div className="flex flex-wrap items-center justify-between gap-4">
                 <div>
-                  <p className="text-[11px] uppercase tracking-wider text-white/60">Contrato</p>
-                  <p className="text-sm font-medium text-white">Acordo de Confidencialidade</p>
+                  <p className="text-[11px] uppercase tracking-wider text-white/60">Painel</p>
+                  <p className="text-lg font-medium text-white">Seu jurídico, organizado e previsível</p>
                 </div>
-                <span className="inline-flex items-center gap-1 rounded-full bg-[color:color-mix(in_oklab,var(--brand)_25%,transparent)] px-2 py-1 text-[11px] text-white">
-                  • Em vigor
-                </span>
+                <span className="inline-flex items-center gap-1 rounded-full bg-[color:color-mix(in_oklab,var(--accent)_20%,transparent)] px-2.5 py-1 text-[11px] text-white/90">• Status saudável</span>
               </div>
-              <div className="mt-3 grid grid-cols-3 gap-3 text-xs">
-                <div className="rounded-lg border border-white/10 bg-white/5 p-3">
-                  <p className="text-white/60">Partes</p>
-                  <p className="font-medium text-white">Empresa A, B</p>
+
+              <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                  <p className="text-white/60 text-sm">Contratos ativos</p>
+                  <p className="mt-1 text-2xl font-semibold text-white">128</p>
+                  <p className="text-xs text-emerald-400 mt-1">+12 este mês</p>
                 </div>
-                <div className="rounded-lg border border-white/10 bg-white/5 p-3">
-                  <p className="text-white/60">Vigência</p>
-                  <p className="font-medium text-white">24 meses</p>
+                <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                  <p className="text-white/60 text-sm">Conformidade LGPD</p>
+                  <p className="mt-1 text-2xl font-semibold text-white">96%</p>
+                  <p className="text-xs text-white/70 mt-1">5 bases legais mapeadas</p>
                 </div>
-                <div className="rounded-lg border border-white/10 bg-white/5 p-3">
-                  <p className="text-white/60">Risco</p>
-                  <p className="font-medium text-emerald-400">Baixo</p>
+                <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                  <p className="text-white/60 text-sm">Casos em andamento</p>
+                  <p className="mt-1 text-2xl font-semibold text-white">14</p>
+                  <p className="text-xs text-amber-300 mt-1">2 com prioridade</p>
                 </div>
               </div>
             </div>
 
-            {/* Card 2 */}
-            <div className="absolute right-0 top-32 w-[68%] max-w-[380px] rounded-2xl border border-white/15 bg-white/10 p-5 shadow-sm backdrop-blur">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-[11px] uppercase tracking-wider text-white/60">LGPD</p>
-                  <p className="text-sm font-medium text-white">Mapa de Dados</p>
-                </div>
-                <span className="inline-flex items-center gap-1 rounded-full bg-[color:color-mix(in_oklab,var(--accent)_25%,transparent)] px-2 py-1 text-[11px] text-white">
-                  • Conformidade
-                </span>
-              </div>
-              <div className="mt-3 grid grid-cols-2 gap-3 text-xs">
-                <div className="rounded-lg border border-white/10 bg-white/5 p-3">
-                  <p className="text-white/60">Bases legais</p>
-                  <p className="font-medium text-white">5 mapeadas</p>
-                </div>
-                <div className="rounded-lg border border-white/10 bg-white/5 p-3">
-                  <p className="text-white/60">Gaps</p>
-                  <p className="font-medium text-amber-300">2 pendências</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 3 small badge */}
-            <div className="absolute left-10 bottom-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[11px] text-white shadow-sm backdrop-blur">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" /> 92% casos resolvidos
+            {/* KPIs espaçados */}
+            <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-4">
+              <Metric value="< 24h" label="Tempo de resposta" />
+              <Metric value="92%" label="Casos resolvidos" accent="emerald" />
+              <Metric value="74" suffix=" NPS" label="Satisfação dos clientes" accent="brand" />
+              <Metric value="Brasil" label="Cobertura nacional" accent="accent" />
             </div>
           </div>
-        </div>
-
-        {/* Metrics bar */}
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <Metric value="< 24h" label="Tempo de resposta" />
-          <Metric value="92%" label="Casos resolvidos" accent="emerald" />
-          <Metric value="74" suffix=" NPS" label="Satisfação dos clientes" accent="brand" />
-          <Metric value="Brasil" label="Cobertura nacional" accent="accent" />
         </div>
       </div>
     </section>
