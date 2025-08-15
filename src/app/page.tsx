@@ -39,7 +39,7 @@ export default function Home() {
         </section>
 
         {/* Diferenciais */}
-        <section id="diferenciais" className="border-t border-black/5 bg-white">
+        <section id="diferenciais" data-surface="light" className="border-t border-black/5 bg-white">
           <div className="mx-auto max-w-7xl px-6 py-20">
             <h2 className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] bg-clip-text text-transparent">Por que escolher a JurisWay</h2>
             <div className="mt-8 grid gap-6 md:grid-cols-3">
@@ -86,7 +86,7 @@ export default function Home() {
         </section>
 
         {/* Contato */}
-        <section id="contato" className="border-t border-black/5 bg-white">
+        <section id="contato" data-surface="light" className="border-t border-black/5 bg-white">
           <div className="mx-auto max-w-7xl px-6 py-20">
             <div className="grid gap-10 md:grid-cols-2">
               <div>
