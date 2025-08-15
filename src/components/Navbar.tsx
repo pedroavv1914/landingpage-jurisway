@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const NAV_ITEMS = [
   { href: "#sobre", label: "Sobre" },
@@ -47,6 +47,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
+  const [light, setLight] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -55,6 +57,32 @@ export default function Navbar() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Detect if a light surface is under the navbar (sections tagged with data-surface="light")
+  useEffect(() => {
+    const compute = () => {
+      const header = headerRef.current;
+      const lights = Array.from(document.querySelectorAll<HTMLElement>('[data-surface="light"]'));
+      if (!header || !lights.length) return setLight(false);
+      const hb = header.getBoundingClientRect();
+      const probeY = hb.bottom + 8; // a bit further to avoid flicker
+      const probeX = window.innerWidth / 2;
+      const visibleLight = lights.some((el) => {
+        const r = el.getBoundingClientRect();
+        return r.top <= probeY && r.bottom >= probeY && r.left <= probeX && r.right >= probeX;
+      });
+      setLight(visibleLight);
+    };
+    compute();
+    const onScroll = () => compute();
+    const onResize = () => compute();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
   }, []);
 
   // Active section highlight
@@ -91,17 +119,25 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
+  const onDark = !light; // when not over a light surface, assume dark backdrop
+
   return (
-    <header className="fixed inset-x-0 top-4 sm:top-5 md:top-6 z-50 pointer-events-none" role="banner">
+    <header ref={headerRef} className="fixed inset-x-0 top-4 sm:top-5 md:top-6 z-50 pointer-events-none" role="banner">
       <div className="mx-auto max-w-7xl px-6">
         {/* Floating pill */}
-        <div className="pointer-events-auto mx-auto flex w-full max-w-4xl items-center justify-between rounded-full border border-white/15 bg-white/10 px-3 py-2 backdrop-blur-md shadow-lg shadow-black/10">
+        <div className={`pointer-events-auto mx-auto flex w-full max-w-4xl items-center justify-between rounded-full px-3 py-2 backdrop-blur-md transition-colors ${
+          onDark
+            ? "border border-white/15 bg-white/10 shadow-lg shadow-black/10"
+            : "border border-black/15 bg-white shadow-xl shadow-black/15 ring-1 ring-black/5"
+        }`}>
           {/* Brand */}
           <a href="#" className="flex items-center gap-3" aria-label="JurisWay - Início">
-            <span className="grid h-9 w-9 place-items-center rounded-xl border border-white/20 bg-white/10 text-white/95 transition-transform duration-300 will-change-transform hover:scale-[1.03]">
-              <LogoMark className="text-white" />
+            <span className={`grid h-9 w-9 place-items-center rounded-xl transition-transform duration-300 will-change-transform hover:scale-[1.03] ${
+              onDark ? "border border-white/20 bg-white/10 text-white/95" : "border border-black/10 bg-white text-black"
+            }`}>
+              <LogoMark className={onDark ? "text-white" : "text-black"} />
             </span>
-            <span className="hidden sm:inline font-semibold tracking-tight text-white/95">JurisWay</span>
+            <span className={`hidden sm:inline font-semibold tracking-tight ${onDark ? "text-white/95" : "text-black/90"}`}>JurisWay</span>
           </a>
 
           {/* Desktop Nav */}
@@ -110,12 +146,12 @@ export default function Navbar() {
               {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   <a
-                    className={`group ${!scrolled ? "text-white/85 hover:text-white" : linkBase} relative mx-2 inline-flex items-center px-2 py-1 transition-colors`}
+                    className={`group ${onDark ? "text-white/85 hover:text-white" : "text-black/80 hover:text-black"} relative mx-2 inline-flex items-center px-2 py-1 transition-colors`}
                     href={item.href}
                   >
                     {item.label}
                     <span
-                      className={`pointer-events-none absolute -bottom-0.5 left-2 right-2 h-px origin-left scale-x-0 bg-[var(--brand)] transition-transform duration-300 ${
+                      className={`pointer-events-none absolute -bottom-0.5 left-2 right-2 h-px origin-left scale-x-0 ${onDark ? "bg-[var(--brand)]" : "bg-[var(--brand)]"} transition-transform duration-300 ${
                         active === item.href.replace("#", "") ? "scale-x-100" : "group-hover:scale-x-100"
                       }`}
                     />
@@ -135,7 +171,7 @@ export default function Navbar() {
             </a>
             <button
               className={`md:hidden inline-flex h-9 w-9 items-center justify-center rounded-full border ${
-                !scrolled ? "border-white/20 bg-white/10 text-white/90" : "border-black/10 bg-black/5 text-[color:var(--foreground)]/80"
+                onDark ? "border-white/20 bg-white/10 text-white/90" : "border-black/15 bg-white text-black/80 shadow-sm"
               }`}
               aria-label="Abrir menu"
               aria-expanded={open}
