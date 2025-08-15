@@ -1,27 +1,10 @@
 import Hero from "../components/Hero";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Navbar */}
-      <header className="sticky top-0 z-50 border-b border-black/5 bg-background/80 backdrop-blur">
-        <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-full bg-[var(--brand)] text-white grid place-items-center font-semibold">JW</div>
-            <span className="font-semibold tracking-tight">JurisWay</span>
-          </div>
-          <nav aria-label="Navegação principal" className="hidden md:block">
-            <ul className="flex items-center gap-6 text-sm">
-              <li><a className="hover:underline underline-offset-4" href="#sobre">Sobre</a></li>
-              <li><a className="hover:underline underline-offset-4" href="#areas">Áreas</a></li>
-              <li><a className="hover:underline underline-offset-4" href="#diferenciais">Diferenciais</a></li>
-              <li><a className="hover:underline underline-offset-4" href="#depoimentos">Depoimentos</a></li>
-              <li><a className="hover:underline underline-offset-4" href="#contato">Contato</a></li>
-            </ul>
-          </nav>
-          <a href="#contato" className="hidden md:inline-flex items-center rounded-full bg-[var(--brand)] text-white px-5 py-2 text-sm font-medium hover:bg-[var(--brand-600)]">Agendar consulta</a>
-        </div>
-      </header>
+      <Navbar />
 
       <main>
         {/* Hero */}
