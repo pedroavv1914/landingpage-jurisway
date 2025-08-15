@@ -21,10 +21,12 @@ export default function Hero() {
       if (head) head.style.transform = `translateY(${headY}px)`;
       if (panel) panel.style.transform = `translateY(${panelY}px)`;
     };
-    const rafWrap = () => requestAnimationFrame(onScroll);
-    window.addEventListener("scroll", rafWrap, { passive: true });
+    const handler: () => void = () => {
+      requestAnimationFrame(onScroll);
+    };
+    window.addEventListener("scroll", handler, { passive: true });
     onScroll();
-    return () => window.removeEventListener("scroll", rafWrap as any);
+    return () => window.removeEventListener("scroll", handler);
   }, []);
   return (
     <section
