@@ -2,6 +2,7 @@ import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import About from "../components/About";
 import Areas from "../components/Areas";
+import Diferenciais from "../components/Diferenciais";
 import Separator from "../components/Separator";
 
 export default function Home() {
@@ -22,23 +23,7 @@ export default function Home() {
         <Separator />
 
         {/* Diferenciais */}
-        <section id="diferenciais" data-surface="light" className="border-t border-black/5 bg-white">
-          <div className="mx-auto max-w-7xl px-6 py-20">
-            <h2 className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] bg-clip-text text-transparent">Por que escolher a JurisWay</h2>
-            <div className="mt-8 grid gap-6 md:grid-cols-3">
-              {[
-                { t: "Comunicação clara", d: "Sem juridiquês: posicionamentos práticos, prazos e próximos passos." },
-                { t: "Foco em resultado", d: "Estratégia orientada a metas e indicadores mensuráveis." },
-                { t: "Time dedicado", d: "Profissionais experientes com visão de negócio." },
-              ].map((f) => (
-                <div key={f.t} className="rounded-2xl border border-[color:color-mix(in_oklab,var(--accent)_25%,black)] bg-[var(--muted)] p-6">
-                  <h3 className="text-lg font-semibold">{f.t}</h3>
-                  <p className="mt-2 text-sm text-black/70">{f.d}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <Diferenciais />
         <Separator />
 
         {/* Depoimentos */}
