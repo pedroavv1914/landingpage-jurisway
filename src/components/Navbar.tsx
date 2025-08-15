@@ -59,6 +59,38 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Fallback scroll spy based on viewport center to improve reliability
+  useEffect(() => {
+    const ids = NAV_ITEMS.map((i) => i.href.replace("#", ""));
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const mid = window.innerHeight / 2;
+        let current = active;
+        for (const id of ids) {
+          const el = document.getElementById(id);
+          if (!el) continue;
+          const r = el.getBoundingClientRect();
+          if (r.top <= mid && r.bottom >= mid) {
+            current = id;
+            break;
+          }
+        }
+        if (current && current !== active) setActive(current);
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    onScroll();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [active]);
+
   // Detect if a light surface is under the navbar (sections tagged with data-surface="light")
   useEffect(() => {
     const compute = () => {
