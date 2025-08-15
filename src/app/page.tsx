@@ -1,5 +1,6 @@
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
+import About from "../components/About";
 
 export default function Home() {
   return (
@@ -11,31 +12,7 @@ export default function Home() {
         <Hero />
 
         {/* Sobre */}
-        <section id="sobre" className="border-t border-black/5 bg-white">
-          <div className="mx-auto max-w-7xl px-6 py-20 grid gap-10 md:grid-cols-2">
-            <div>
-              <h2 className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] bg-clip-text text-transparent">Compromisso com excelência e clareza</h2>
-              <p className="mt-4 text-black/70 leading-relaxed">Atuamos com foco em resultado, linguagem direta e previsibilidade. Nossas orientações são objetivas, com análise de risco e plano de ação claros em cada etapa.</p>
-              <ul className="mt-6 grid gap-3 text-sm text-black/80">
-                <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-black/80" /> Atendimento consultivo e contencioso</li>
-                <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-black/80" /> Relatórios executivos e indicadores</li>
-                <li className="flex items-start gap-2"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-black/80" /> Suporte remoto e presencial</li>
-              </ul>
-            </div>
-            <div className="grid grid-cols-3 gap-4">
-              {[
-                { kpi: "+250", label: "casos conduzidos" },
-                { kpi: "98%", label: "SLA de respostas" },
-                { kpi: "24h", label: "prioridade crítica" },
-              ].map((item) => (
-                <div key={item.kpi} className="rounded-xl border border-[color:color-mix(in_oklab,var(--brand)_25%,black)] bg-[var(--muted)] p-6 text-center">
-                  <div className="text-2xl font-semibold">{item.kpi}</div>
-                  <div className="mt-1 text-xs text-black/60">{item.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <About />
 
         {/* Áreas de Atuação */}
         <section id="areas" className="border-t border-black/5">
