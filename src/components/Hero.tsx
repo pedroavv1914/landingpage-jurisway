@@ -44,7 +44,7 @@ export default function Hero() {
         <div className="aurora" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-40 min-h-screen flex items-center">
+      <div className="mx-auto max-w-7xl px-6 pt-20 sm:pt-28 pb-24 min-h-screen flex items-center">
         <div className="w-full space-y-12">
           {/* Headline centralizada */}
           <div ref={headRef} className="mx-auto max-w-3xl text-center relative z-10 fade-up" style={{ animationDelay: "60ms" }}>
