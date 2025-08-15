@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Hero from "../components/Hero";
 
 export default function Home() {
   return (
@@ -25,36 +25,7 @@ export default function Home() {
 
       <main>
         {/* Hero */}
-        <section className="relative overflow-hidden">
-          <div aria-hidden className="pointer-events-none absolute inset-0">
-            <div className="absolute inset-0 bg-[radial-gradient(600px_200px_at_20%_-40%,rgba(0,0,0,0.06)_0%,transparent_60%),radial-gradient(600px_200px_at_80%_-40%,rgba(0,0,0,0.06)_0%,transparent_60%)]" />
-            <div className="absolute -inset-x-20 -top-32 h-64 bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] opacity-20 blur-3xl" />
-          </div>
-          <div className="mx-auto max-w-7xl px-6 pt-20 pb-24 sm:pt-28 sm:pb-32">
-            <div className="grid items-center gap-10 md:grid-cols-2">
-              <div>
-                <p className="text-xs uppercase tracking-widest text-black/60">Advocacia & Consultoria</p>
-                <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] bg-clip-text text-transparent">Soluções jurídicas estratégicas para impulsionar seus resultados</h1>
-                <p className="mt-4 text-black/70 leading-relaxed">Na JurisWay, unimos técnica, experiência e atendimento humano para proteger seus interesses e destravar oportunidades. Conte com um time ágil e comprometido.</p>
-                <div className="mt-6 flex items-center gap-3">
-                  <a href="#contato" className="inline-flex items-center rounded-full bg-[var(--brand)] text-white px-5 py-2.5 text-sm font-medium hover:bg-[var(--brand-600)]">Fale com um especialista</a>
-                  <a href="#areas" className="inline-flex items-center rounded-full border border-[color:var(--brand)] text-[color:var(--brand)] px-5 py-2.5 text-sm font-medium hover:bg-[color:color-mix(in_oklab,white_85%,var(--brand))] hover:text-[color:var(--foreground)]">Conheça nossas áreas</a>
-                </div>
-                <div className="mt-8 flex items-center gap-6 text-xs text-black/60">
-                  <div className="flex -space-x-2">
-                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-black/10 text-[10px]">A+</span>
-                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-black/10 text-[10px]">OAB</span>
-                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-black/10 text-[10px]">LGPD</span>
-                  </div>
-                  <span>Atendimento em todo o Brasil</span>
-                </div>
-              </div>
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[color:color-mix(in_oklab,var(--brand)_30%,black)] bg-white shadow-sm">
-                <Image src="/globe.svg" alt="Ilustração jurídica" fill className="object-contain p-10 opacity-80" />
-              </div>
-            </div>
-          </div>
-        </section>
+        <Hero />
 
         {/* Sobre */}
         <section id="sobre" className="border-t border-black/5 bg-white">
