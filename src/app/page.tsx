@@ -1,6 +1,8 @@
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import About from "../components/About";
+import Areas from "../components/Areas";
+import Separator from "../components/Separator";
 
 export default function Home() {
   return (
@@ -13,30 +15,11 @@ export default function Home() {
 
         {/* Sobre */}
         <About />
+        <Separator />
 
         {/* Áreas de Atuação */}
-        <section id="areas" className="border-t border-black/5">
-          <div className="mx-auto max-w-7xl px-6 py-20">
-            <h2 className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-[var(--brand)] to-[var(--accent)] bg-clip-text text-transparent">Áreas de atuação</h2>
-            <p className="mt-2 text-black/70">Cobertura completa para as principais demandas empresariais e pessoais.</p>
-            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                { title: "Direito Empresarial", desc: "Contratos, societário, M&A e governança." },
-                { title: "Trabalhista", desc: "Consultivo preventivo e contencioso estratégico." },
-                { title: "Cível e Contratos", desc: "Gestão de contratos e litígios complexos." },
-                { title: "Consumidor", desc: "Adequação de processos e defesa técnica." },
-                { title: "Tributário", desc: "Planejamento e contencioso administrativo/judicial." },
-                { title: "LGPD & Compliance", desc: "Privacidade, segurança e programas de integridade." },
-              ].map((card) => (
-                <div key={card.title} className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm transition hover:shadow-md hover:ring-2 hover:ring-[var(--brand)]">
-                  <div className="h-10 w-10 rounded-md bg-[var(--brand)] text-white grid place-items-center text-xs font-semibold">JW</div>
-                  <h3 className="mt-4 text-lg font-semibold">{card.title}</h3>
-                  <p className="mt-1 text-sm text-black/70">{card.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <Areas />
+        <Separator />
 
         {/* Diferenciais */}
         <section id="diferenciais" data-surface="light" className="border-t border-black/5 bg-white">
@@ -56,6 +39,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <Separator />
 
         {/* Depoimentos */}
         <section id="depoimentos" className="border-t border-black/5">
@@ -84,6 +68,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <Separator />
 
         {/* Contato */}
         <section id="contato" data-surface="light" className="border-t border-black/5 bg-white">
@@ -125,6 +110,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <Separator />
       </main>
 
       {/* Rodapé */}
